@@ -1,0 +1,81 @@
+.box {
+  background: rgb(213, 212, 212);
+  width: 100vw;
+  height: 100vh;
+  /* top left (circle) => top right (square) => bottom right (circle) => bottom left (square) => top left (circle) */
+}
+.box .circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: yellow;
+  animation-name: moveCircle;
+  animation-duration: 6s;
+}
+.box .circle:hover {
+  display: none;
+}
+@keyframes moveCircle {
+  0%, 100% {
+    transform: translate(0, 0);
+    border-radius: 50%;
+  }
+  25% {
+    transform: translate(calc(100vw - 150px), 0);
+    border-radius: 0%;
+  }
+  50% {
+    transform: translate(calc(100vw - 150px), calc(100vh - 150px));
+    border-radius: 50%;
+  }
+  75% {
+    transform: translate(0, calc(100vh - 150px));
+    border-radius: 0%;
+  }
+}
+
+.box2 {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* loading bar that fills up from left to right. */
+}
+.box2 .loading {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 100px;
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  transition: all 0.3s linear;
+}
+.box2 .loading:hover {
+  background-position-x: 0;
+  color: white;
+}
+
+.box3 .loading-itself {
+  width: 0;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 100px;
+  text-align: center;
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  animation: loading-itself 3s ease-in-out forwards;
+}
+@keyframes loading-itself {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+    color: white;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
